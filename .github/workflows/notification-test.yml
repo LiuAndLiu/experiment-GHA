@@ -12,5 +12,3 @@ jobs:
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
       - name: Test is a test
         run: echo "This is the start of the test"
-      - name: this gonna fail
-        run: asdfasdfasdfasdf
