@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Open Pull Request Notification
         uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-        if: ${{ github.event.pull_request.merged == "false" }}
+        if: ${{ !github.event.pull_request.merged }}
         with:
           github-token: ${{ github.token }}
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Merged Notification
         uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-        if: ${{ github.event.pull_request.merged == "true" }}
+        if: github.event.pull_request.merged
         with:
           github-token: ${{ github.token }}
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
