@@ -1,0 +1,14 @@
+name: Test teams notification
+on: push
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test is a test
+        run: echo "This is the start of the test"
+      - name: Microsoft Teams Deploy Card
+        uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+        if: always()
+        with:
+          github-token: ${{ github.token }}
+          webhook-url: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
