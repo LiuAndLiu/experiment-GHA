@@ -1,5 +1,5 @@
 name: Test teams notification
-on: push
+on: [push, pull_request]
 jobs:
   send-notification:
     runs-on: ubuntu-latest
