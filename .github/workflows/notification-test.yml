@@ -1,20 +1,30 @@
 name: Test teams notification
 on: 
-  push:
-    branches:
-      - master
   pull_request:
+    types:
+      - opened
+      - closed
     branches:
       - master
 jobs:
-  send-notification:
+  send-pr-notification:
     runs-on: ubuntu-latest
     steps:
-      - name: Microsoft Teams Deploy Card
+      - name: Open Pull Request Notification
         uses: toko-bifrost/ms-teams-deploy-card@3.1.2
-        if: always()
+        if: ${{ !github.event.pull_request.merged }}
         with:
           github-token: ${{ github.token }}
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
-      - name: Test is a test
-        run: echo "This is the start of the test"
+          show-on-exit: false
+  
+  send-merged-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merged Notification
+        uses: toko-bifrost/ms-teams-deploy-card@3.1.2
+        if: github.event.pull_request.merged
+        with:
+          github-token: ${{ github.token }}
+          webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
+          show-on-start: false
