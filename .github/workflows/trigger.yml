@@ -1,4 +1,4 @@
-name: Test teams notification
+name: TRIGGER
 on: 
   pull_request:
     types:
