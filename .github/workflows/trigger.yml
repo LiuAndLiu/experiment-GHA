@@ -28,3 +28,5 @@ jobs:
           github-token: ${{ github.token }}
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI_GITHUB }}
           show-on-start: false
+      - name: Run oyaoya
+        run: echo "oyaoya"
