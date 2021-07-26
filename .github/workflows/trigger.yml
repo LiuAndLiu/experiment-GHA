@@ -5,7 +5,7 @@ on:
       - opened
       - closed
     branches:
-      - "update-image/**"
+      - update-image/**
 jobs:
   send-pr-notification:
     runs-on: ubuntu-latest
