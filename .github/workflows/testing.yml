@@ -10,7 +10,7 @@ jobs:
     env: 
       key: asdf
       value: sdfg
-      THISISATEST: ${key}${value}
+      THISISATEST: ${{ env.key }}${{ env.value }}
     steps:
       - name: This is a test 
         run: echo $THISISATEST ${{ env.THISISATEST }}
