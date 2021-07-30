@@ -1,0 +1,16 @@
+name: test
+on:
+  push:
+    branches:
+      - test-env-branch
+
+jobs:
+  test-run-env:
+    runs-on: ubuntu-latest
+    env: 
+      key: asdf
+      value: sdfg
+      THISISATEST: ${key}${value}
+    steps:
+      - name: This is a test 
+        run: echo $THISISATEST ${{ env.THISISATEST }}
