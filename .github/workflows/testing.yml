@@ -10,7 +10,10 @@ jobs:
     env: 
       key: asdf
       value: sdfg
-      THISISATEST: ${{ env.key }}${{ env.value }}
     steps:
-      - name: This is a test 
-        run: echo $THISISATEST ${{ env.THISISATEST }}
+      - name: Create new branch
+        uses: peterjgrainger/action-create-branch@9aafd7fe884f49eedf9bfb11991b677c56773072
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: ${{ env.key }}${{ env.value }}
