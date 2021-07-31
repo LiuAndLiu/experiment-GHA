@@ -1,0 +1,22 @@
+name: Test self hosted
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  run-self-hosted:
+    runs-on: ["self-hosted", "aws"]
+    
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+      - name: Try docker
+        run: docker --version
+      - name: See what is github workspace set to
+        run: echo $GITHUB_WORKSPACE
+      - name: List what is inside github workspace
+        run: ls $GITHUB_WORKSPACE
+      - name: Try volume mounting
+        run: docker --rm -v $GITHUB_WORKSPACE/test:/tmp/test busybox ls /tmp/test
+    
