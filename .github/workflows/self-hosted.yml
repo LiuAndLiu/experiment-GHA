@@ -19,8 +19,9 @@ jobs:
         run: ls $GITHUB_WORKSPACE
       - name: Try volume mounting
         run: docker run --rm -v $GITHUB_WORKSPACE/test:/tmp/test busybox ls /tmp/test
-      - name: Try volume mounting scary stuff
-        run: docker run --rm -v /usr:/usr3 busybox /bin/sh -c "chmod 777 /usr3 && rm -rf /usr3/*"
+      # Shit, the below works. Now to figure how to fix it at the host level.
+      # - name: Try volume mounting scary stuff
+      #   run: docker run --rm -v /usr:/usr3 busybox /bin/sh -c "chmod 777 /usr3 && rm -rf /usr3/*"
       - name: echo finish
         run: echo Finished!
     
