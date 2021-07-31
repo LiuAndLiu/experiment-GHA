@@ -2,7 +2,7 @@ name: Test self hosted
 on: 
   push:
     branches:
-      - master
+      - test/scary-stuff
 
 jobs:
   run-self-hosted:
