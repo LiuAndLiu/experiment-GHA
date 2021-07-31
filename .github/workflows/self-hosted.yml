@@ -19,4 +19,6 @@ jobs:
         run: ls $GITHUB_WORKSPACE
       - name: Try volume mounting
         run: docker run --rm -v $GITHUB_WORKSPACE/test:/tmp/test busybox ls /tmp/test
+      - name: echo finish
+        run: echo Finished!
     
