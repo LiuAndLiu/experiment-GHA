@@ -8,4 +8,4 @@ jobs:
       INFO: ${{ toJSON(github.event) }}
     steps:
       - name: Event info
-        run: echo INFO
+        run: echo $INFO
