@@ -1,0 +1,11 @@
+name: Dispatch test
+on: workflow_dispatch
+
+jobs:
+  workflow-dispatch-test:
+    runs-on: ubuntu-latest
+    env: 
+      INFO: ${{ fromJSON(github.event) }}
+    steps:
+      - name: Event info
+        run: echo INFO
