@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       INFO: ${{ toJSON(github.event) }}
+      SENDER: ${{ github.event.sender.login }}
     steps:
       - name: Event info
-        run: echo $INFO
+        run: echo This is sent by $SENDER
