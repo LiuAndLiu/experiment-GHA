@@ -1,0 +1,32 @@
+name: Test Environment
+on: [push]
+
+jobs:
+  test-dev-env:
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+    env:
+      SECRET: ${{ secrets.TEST_ENV }}
+    steps:
+      - name: TEST ENV!
+        run: |
+          if [ "$SECRET" = "hello dev" ]; then
+            echo "Strings are equal."
+          else
+              echo "Strings are not equal."
+          fi
+  test-prod-env:
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+    env:
+      SECRET: ${{ secrets.TEST_ENV }}
+    steps:
+      - name: TEST ENV!
+        run: |
+          if [ "$SECRET" = "hello prod" ]; then
+            echo "Strings are equal."
+          else
+              echo "Strings are not equal."
+          fi
