@@ -1,5 +1,8 @@
 name: Test Environment
-on: [push]
+on: 
+  push:
+    branches:
+      - dispatch-test/**
 
 jobs:
   test-dev-env:
