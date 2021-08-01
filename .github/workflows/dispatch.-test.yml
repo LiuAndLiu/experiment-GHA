@@ -12,11 +12,9 @@ jobs:
         run: echo This is sent by $SENDER
       - name: Name check True intentional
         run: |
-          if [ "$SENDER" != "JustinYeoh93" ]; then
-            exit 1
+          if [ "$SENDER" != "JustinYeoh93" ]; then exit 1
       - name: Name check False intentional
         run: |
-          if [ "$SENDER" != "JustinYeoh993" ]; then
-            exit 1
+          if [ "$SENDER" != "JustinYeoh993" ]; then exit 1
       - name: Must not reach here
         run: echo "Oh no it reached here."
