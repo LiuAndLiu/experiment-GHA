@@ -5,7 +5,7 @@ jobs:
   workflow-dispatch-test:
     runs-on: ubuntu-latest
     env: 
-      INFO: ${{ fromJSON(github.event) }}
+      INFO: ${{ toJSON(github.event) }}
     steps:
       - name: Event info
         run: echo INFO
