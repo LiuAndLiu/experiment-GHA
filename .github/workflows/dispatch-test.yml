@@ -22,3 +22,11 @@ jobs:
           fi
       - name: Must not reach here
         run: echo "Oh no it reached here."
+
+
+  follow-up-test-must-fail:
+    runs-on: ubuntu-latest
+    needs: [workflow-dispatch-test]
+    steps:
+      - name: I should not have ran man
+        run: echo "what have you done."
