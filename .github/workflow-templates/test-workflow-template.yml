@@ -1,0 +1,12 @@
+name: This is a test to see if I can get workflow templates out
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: echo "heyyo"
