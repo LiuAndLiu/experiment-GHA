@@ -6,7 +6,7 @@ on:
 
 jobs:
   login-aws-and-ecr:
-    environment: deployment
+    environment: development
     runs-on: ubuntu-latest
     outputs:
       registry: ${{ steps.login-ecr.outputs.registry }}
