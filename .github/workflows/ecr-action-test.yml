@@ -34,5 +34,5 @@ jobs:
         env: 
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          - docker build -t $REGISTRY/registry-test .
-          - docker push
+          docker build -t $REGISTRY/registry-test .
+          docker push
