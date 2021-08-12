@@ -5,7 +5,7 @@ on:
       - opened
       - closed
     branches:
-      - master
+      - pr-test/**
 jobs:
   send-pr-notification:
     runs-on: ubuntu-latest

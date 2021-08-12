@@ -4,7 +4,7 @@ name: Pull request branch test
 on:
   pull_request:
     branches:
-      - master
+      - pr-test/**
 
 jobs:
   test-run:
