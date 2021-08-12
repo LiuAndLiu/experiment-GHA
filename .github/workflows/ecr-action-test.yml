@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       registry: ${{ steps.login-ecr.outputs.registry }}
+      output_test1: "hi there"
     steps:
       - name: Checkout actions
         uses: actions/checkout@v2
@@ -39,7 +40,9 @@ jobs:
       - name: test push to registry
         env: 
           REGISTRY: ${{ needs.login-aws-and-ecr.outputs.registry }}
+          OUTPUT_TEST: ${{ needs.login-aws-and-ecr.outputs.output_test1 }}
         run: |
           echo $REGISTRY
+          echo $OUTPUT_TEST
           docker build -t $REGISTRY/registry-test:needs-test .
           docker push $REGISTRY/registry-test
