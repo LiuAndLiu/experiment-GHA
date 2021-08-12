@@ -30,9 +30,16 @@ jobs:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: echo $REGISTRY
 
+
+  push-to-registry:
+    environment: development
+    runs-on: ubuntu-latest
+    needs: login-aws-and-ecr
+    steps:
       - name: test push to registry
         env: 
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          REGISTRY: ${{ needs.login-aws-and-ecr.outputs.registry }}
         run: |
-          docker build -t $REGISTRY/registry-test .
+          echo $REGISTRY
+          docker build -t $REGISTRY/registry-test:needs-test .
           docker push $REGISTRY/registry-test
