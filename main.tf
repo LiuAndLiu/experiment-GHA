@@ -38,8 +38,17 @@ data "github_actions_public_key" "example_public_key" {
   repository = github_repository.test.name
 }
 
+
+data "github_actions_public_key" "example_public_key_2" {
+  repository = "shelter"
+}
+
 output "public_key" {
     value = data.github_actions_public_key.example_public_key
+}
+
+output "public_key_2" {
+    value = data.github_actions_public_key.example_public_key_2
 }
 
 resource "github_actions_secret" "secret_test" {
