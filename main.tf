@@ -51,5 +51,5 @@ resource "github_actions_secret" "secret_test" {
 resource "github_actions_secret" "secret_test_2" {
     repository = github_repository.test.name
     secret_name = "test2"
-    plaintext_value = "dGVzdDIK"
+    plaintext_value = "test2"
 }
