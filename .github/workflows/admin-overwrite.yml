@@ -2,8 +2,10 @@
 # If a pull request towards a master branch from a feature branch occurs, would the branch rule of master allow trigger?
 name: Pull request branch test
 on:
-  pull_request:
+  push:
     branches:
+      - test/admin-overwrite
+    paths:
       - test/**.txt
 
 jobs:
