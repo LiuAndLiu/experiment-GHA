@@ -1,0 +1,14 @@
+# The goal of this test is to see how the branching rule works for pull request
+# If a pull request towards a master branch from a feature branch occurs, would the branch rule of master allow trigger?
+name: Pull request branch test
+on:
+  pull_request:
+    branches:
+      - test/**.txt
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hi"
+        name: Run test
