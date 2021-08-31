@@ -14,6 +14,12 @@ jobs:
       - name: Make changes
         run: echo hello >> test.yml
 
+      - name: Configure identity
+        run: |
+          git config user.email 'github-action@users.noreply.github.com'
+          git config user.name 'GitHub Action'
+          git config user.password ${{ secrets.GITHUB_TOKEN }}
+
       - name: Add and commit
         run: git add . && git commit -m "Auto commit"
 
