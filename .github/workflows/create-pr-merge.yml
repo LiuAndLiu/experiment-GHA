@@ -9,22 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create branch
-        run: git checkout -b feature/some_random_branch
-
-      - name: Make changes
-        run: echo hello >> test.yml
-
-      - name: Configure identity
-        run: |
-          git config user.email 'github-action@users.noreply.github.com'
-          git config user.name 'GitHub Action'
-          git config user.password ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add and commit
-        run: git add . && git commit -m "Auto commit"
-
-      - name: Merge to master
-        run: git checkout master && git merge feature/some_random_branch
-
-      - name: Push to master
-        run: git push
+        uses: actions/github-script@v4
+        with:
+          script: |
+            echo ${{ context }}
