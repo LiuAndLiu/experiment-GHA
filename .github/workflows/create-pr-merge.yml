@@ -12,4 +12,4 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            echo ${{ context }}
+            console.log(context)
