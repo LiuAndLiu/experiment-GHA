@@ -1,0 +1,24 @@
+name: Create PR and Merge using github script
+on: workflow_dispatch
+
+jobs:
+  create-pr-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create branch
+        run: git checkout -b feature/some_random_bracnh
+
+      - name: Make changes
+        run: echo hello >> test.yml
+
+      - name: Add and commit
+        run: git add . && git commit -m "Auto commit"
+
+      - name: Merge to master
+        run: git checkout master && git merge feature/some_random_branch
+
+      - name: Push to master
+        run: git push
