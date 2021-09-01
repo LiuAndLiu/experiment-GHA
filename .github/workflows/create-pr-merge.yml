@@ -14,11 +14,9 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            console.log(context.payload.pull_request.base)
-            console.log(context.payload.pull_request.head)
-
-# github.repos.merge({
-#   owner: context.repo.owner,
-#   repo: context.repo.repo,
-#   base: context.
-# })
+            github.repos.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: context.payload.pull_request.base.ref
+              head: context.payload.pull_request.head.ref
+            })
