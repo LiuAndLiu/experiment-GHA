@@ -1,5 +1,7 @@
 name: Create PR and Merge using github script
-on: workflow_dispatch
+on:
+  label:
+    types: [created, edited]
 
 jobs:
   create-pr-and-merge:
