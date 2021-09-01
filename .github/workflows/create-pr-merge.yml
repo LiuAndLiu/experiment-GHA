@@ -14,4 +14,15 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            console.log("Nice")
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
+          # github.repos.merge({
+          #   owner: context.repo.owner,
+          #   repo: context.repo.repo,
+          #   base: context.payload.pull_request.base.ref
+          #   head: context.payload.pull_request.head.ref
+          # })
