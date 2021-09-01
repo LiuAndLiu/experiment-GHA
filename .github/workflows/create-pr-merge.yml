@@ -2,7 +2,7 @@ name: Create PR and Merge using github script
 on:
   pull_request:
     branches:
-      - "update-manifest/*/dev/**"
+      - "update-manifest/ohmy/dev/**"
   label:
     types: [created, edited]
 
