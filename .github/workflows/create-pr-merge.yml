@@ -2,14 +2,13 @@ name: Create PR and Merge using github script
 on:
   pull_request:
     types: [labeled]
+    branches:
+      - "update-manifest/**"
 
 jobs:
   create-pr-and-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Create branch
         uses: actions/github-script@v4
         with:
