@@ -7,10 +7,18 @@ on:
 
 jobs:
   create-pr-and-merge:
+    if: ${{ github.event.label.name == 'automerge' }}
     runs-on: ubuntu-latest
     steps:
       - name: Create branch
         uses: actions/github-script@v4
         with:
           script: |
-            console.log(context)
+            console.log(context.payload.pull_request.base)
+            console.log(context.payload.pull_request.head)
+
+# github.repos.merge({
+#   owner: context.repo.owner,
+#   repo: context.repo.repo,
+#   base: context.
+# })
