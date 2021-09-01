@@ -15,9 +15,3 @@ jobs:
         with:
           script: |
             console.log("Nice")
-            github.repos.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              base: context.payload.pull_request.base.ref
-              head: context.payload.pull_request.head.ref
-            })
