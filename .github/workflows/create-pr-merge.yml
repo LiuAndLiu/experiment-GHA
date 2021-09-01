@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [labeled]
     branches:
-      - "update-manifest/**"
+      - master
 
 jobs:
   create-pr-and-merge:
