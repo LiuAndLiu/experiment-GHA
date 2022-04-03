@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY . .
 
+RUN touch /tmp/test.txt
+
 ENTRYPOINT [ "/bin/bash" ]
