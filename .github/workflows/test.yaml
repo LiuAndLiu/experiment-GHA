@@ -1,0 +1,16 @@
+name: Testing self writing 
+
+on: push
+
+jobs:
+  docker:
+    runs-on: [self-hosted]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Build docker image
+        run: docker build -t test:test .
+
+      - name: Run docker image
+        run: docker run test:test ./scripts/write.sh
