@@ -13,4 +13,4 @@ jobs:
         run: docker build -t test:test .
 
       - name: Run docker image
-        run: docker run test:test ./scripts/write.sh
+        run: docker run --read-only test:test ./scripts/write.sh
